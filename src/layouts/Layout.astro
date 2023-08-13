@@ -13,6 +13,7 @@ export interface Props {
 }
 
 const { title } = Astro.props;
+import presentation from "@/data/presentation";
 ---
 
 <!DOCTYPE html>
@@ -26,6 +27,11 @@ const { title } = Astro.props;
     <BlurCircle position="top" color={theme.colors.blur.top} />
     <BlurCircle position="bottom" color={theme.colors.blur.bottom} />
     <slot />
+    <footer class="text-center">
+      <a href={`mailto:${presentation.mail}`} class="hover:text-neutral-100"
+      >{presentation.mail}</a
+    >
+    </footer>
     <style is:global>
       html {
         font-family: "Open Sans";

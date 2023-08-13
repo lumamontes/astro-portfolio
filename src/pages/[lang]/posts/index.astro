@@ -3,7 +3,22 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import formatDate from "@/utils/formatDate";
 
-const posts = await getCollection("posts");
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+export function getStaticPaths () {
+ return [
+    {params: {lang: 'en',}},
+    {params: {lang: 'br'}},
+  ];
+}
+
+const posts = await getCollection('posts', ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
+
 ---
 
 <Layout title="Template - All Posts">
@@ -15,7 +30,7 @@ const posts = await getCollection("posts");
         posts.map((post) => (
           <a
             class="group flex flex-col gap-2 border-t border-neutral-700 py-4 transition-all hover:text-neutral-100"
-            href={`/posts/${post.slug}`}
+            href={`/${lang}/posts/${post.slug}`}
           >
             <div class="flex w-full items-center justify-between">
               <h2 class="text-lg">{post.data.title}</h2>

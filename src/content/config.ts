@@ -8,7 +8,9 @@ const postsCollection = defineCollection({
     description: z.string(),
     isPublish: z.boolean(),
     isDraft: z.boolean().default(false),
+    lang: z.string(),
   }),
 });
+
 
 export const collections = { posts: postsCollection };
