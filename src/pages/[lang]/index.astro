@@ -22,7 +22,7 @@ export function getStaticPaths () {
 
 const { lang } = Astro.params;
 const posts = await getCollection('posts', ({ id }) => {
-  return id.startsWith(`${lang}/`);
+  return id.startsWith(`${langUrl}/`);
 });
 
 ---

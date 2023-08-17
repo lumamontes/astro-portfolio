@@ -2,7 +2,6 @@
 title: "Basic introduction to Astro Framework"
 publishedAt: 2023-08-13
 description: "Discover the Astro framework: speed and modernity in website creation! ✨🚀"
-slug: "astro-framework-introduction"
 isPublish: true
 lang: "en"
 ---
