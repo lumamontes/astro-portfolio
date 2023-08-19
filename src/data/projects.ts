@@ -8,7 +8,7 @@ export type Project = {
 const projects: Project[] = [
   {
     title: "WBB App",
-    techs: ["React Native (Expo)", "react-query", "zod"],
+    techs: ["React Native (Expo)", "react-query"],
     link: "https://github.com/lumamontes/wbb-app",
   },
   {
@@ -17,10 +17,9 @@ const projects: Project[] = [
     link: "https://github.com/lumamontes/locai-frontend",
   },
   {
-    title: "DáLivros",
-    techs: ["ReactJS", "tansquery", "TypeScript"],
-    link: "/",
-    isComingSoon: true,
+    title: "Image gallery",
+    techs: ["NextJs", "Contentful", "TypeScript"],
+    link: "https://github.com/lumamontes/photos-gallery",
   },
 ];
 
