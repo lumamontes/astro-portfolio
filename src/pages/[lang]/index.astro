@@ -8,43 +8,54 @@ import Link from "@/components/shared/Link.astro";
 import convertAsteriskToStrongTag from "@/utils/convertAsteriskToStrongTag";
 import projects from "@/data/projects";
 
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const langUrl = getLangFromUrl(Astro.url);
 const t = useTranslations(langUrl);
 
-export function getStaticPaths () {
- return [
-    {params: {lang: 'en',}},
-    {params: {lang: 'br'}},
-  ];
+export function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "br" } }];
 }
 
 const { lang } = Astro.params;
-const posts = await getCollection('posts', ({ id }) => {
+const posts = await getCollection("posts", ({ id }) => {
   return id.startsWith(`${langUrl}/`);
 });
-
 ---
- <Layout>
+
+<Layout>
   <main class="flex flex-col gap-20">
-    <article class="flex flex-col gap-8">
-      <h1 class="text-3xl text-neutral-100">
-        {t('presentation.title')}
-      </h1>
-      <h2
-        class="max-w-[60ch] leading-6"
-        set:html={convertAsteriskToStrongTag(t('presentation.description'))}
+    <div class="flex flex-wrap items-center gap-6">
+      <img
+        class="h-60 w-60 rounded-full"
+        src="https://avatars.githubusercontent.com/u/60052718?v=4"
+        alt="cover"
       />
-      <SocialLinks />
-    </article>
+
+      <article class="flex flex-col gap-8">
+        <!-- add grid of images  -->
+        <h1 class="text-3xl text-neutral-100">
+          {t("presentation.title")}
+        </h1>
+        <h2
+          class="max-w-[60ch] leading-6"
+          set:html={convertAsteriskToStrongTag(t("presentation.description"))}
+        />
+        <SocialLinks />
+      </article>
+    </div>
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-lg text-neutral-100">
-        {t('blog.latest')}
+          {t("blog.latest")}
         </h3>
-        <Link href={`/${lang}/posts`} label={t('blog.all')} isUnderline target="_self" />
+        <Link
+          href={`/${lang}/posts`}
+          label={t("blog.all")}
+          isUnderline
+          target="_self"
+        />
       </header>
       {posts.length === 0 && <p>Soon, stay connected 👀...</p>}
 
@@ -69,7 +80,7 @@ const posts = await getCollection('posts', ({ id }) => {
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
         <h3 class="text-lg text-neutral-100">
-          {t('projects.title')}
+          {t("projects.title")}
           ({projects.length})
         </h3>
       </header>
@@ -85,13 +96,12 @@ const posts = await getCollection('posts', ({ id }) => {
 
     <article class="flex flex-col gap-8">
       <header class="flex w-full flex-row justify-between gap-2">
-        <h3 class="text-lg text-neutral-100">{t('footer.title')}</h3>
+        <h3 class="text-lg text-neutral-100">{t("footer.title")}</h3>
       </header>
       <p>
-        {t('footer.description')}
+        {t("footer.description")}
       </p>
       <SocialLinks />
     </article>
   </main>
 </Layout>
-

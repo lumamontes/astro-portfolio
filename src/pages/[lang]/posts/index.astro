@@ -4,20 +4,15 @@ import Layout from "@/layouts/Layout.astro";
 import formatDate from "@/utils/formatDate";
 import { getLangFromUrl, getSlugFromUrl } from "@/i18n/utils";
 
-
 const lang = getLangFromUrl(Astro.url);
 
-export function getStaticPaths () {
- return [
-    {params: {lang: 'en',}},
-    {params: {lang: 'br'}},
-  ];
+export function getStaticPaths() {
+  return [{ params: { lang: "en" } }, { params: { lang: "br" } }];
 }
 
-const posts = await getCollection('posts', ({ id }) => {
+const posts = await getCollection("posts", ({ id }) => {
   return id.startsWith(`${lang}/`);
 });
-
 ---
 
 <Layout title="Template - All Posts">
