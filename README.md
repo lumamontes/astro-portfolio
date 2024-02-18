@@ -1,12 +1,10 @@
 # 👨‍🚀 Astro - Portfolio 
 
-https://github.com/lumamontes/astro-portfolio/assets/60052718/bce179fc-fbc8-4e00-8538-b03e1d996dfc
+![image](https://github.com/lumamontes/astro-portfolio/assets/60052718/c66407a8-26e5-4b45-8d5c-37608a19dc98)
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
-
-![Template](https://github.com/MaeWolff/astro-portfolio-template/blob/main/public/opengraph-image.jpg)
 
 This theme/template is designed and crafted by [maxencewolff](https://www.maxencewolff.com).
 NB: Additional color themes can also be configured on the `src/data/theme.ts` file.
