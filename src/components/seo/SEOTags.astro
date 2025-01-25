@@ -17,15 +17,15 @@ type Props = {
 
 const { title, description, noindex, og } = Astro.props;
 
-const DEFAULT_TITLE_PAGE = "Luma Montes - Portfolio";
-const DEFAULT_DESCRIPTION_PAGE = "Portfolio powered by Astro & Tailwind CSS.";
+const DEFAULT_TITLE_PAGE = "Luma Montes";
+const DEFAULT_DESCRIPTION_PAGE = "Software Developer from Brazil";
 
 const DEFAULT_URL_SITE = SITE_URL;
 
 const openGraph = {
   title: og?.title || DEFAULT_TITLE_PAGE,
   type: og?.type || "website",
-  image: og?.image || "/opengraph-image.jpg",
+  image: og?.image || "/opengraph-image.png",
   alt: og?.alt || "astro portfolio template image",
   url: DEFAULT_URL_SITE,
   description: og?.description || DEFAULT_DESCRIPTION_PAGE,
@@ -67,6 +67,42 @@ const openGraph = {
         { name: "twitter:title", content: openGraph.title },
         { name: "twitter:description", content: openGraph.description },
         { name: "twitter:site", content: "@monnlu1" },
+        {
+          name: "og:url",
+          content: openGraph.url,
+        },
+        {
+          name: "og:title",
+          content: openGraph.title,
+        },
+        {
+          name: "og:description",
+          content: openGraph.description,
+        },
+        {
+          name: "og:image",
+          content: openGraph.image,
+        },
+        {
+          name: "og:image:alt",
+          content: openGraph.alt,
+        },
+        {
+          name: "og:type",
+          content: openGraph.type,
+        },
+        {
+          name: "og:site_name",
+          content: "Luma Montes",
+        },
+        {
+          name: "og:locale",
+          content: "en_US",
+        },
+        {
+          name: "og:locale:alternate",
+          content: "pt_BR",
+        },
       ],
     }}
   />
